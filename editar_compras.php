@@ -67,7 +67,7 @@ include_once "./incview/head.php";
         </div>
     </div>
 
-    <?php include_once 'script.php'; ?>
+    <?php include_once './incview/script.php'; ?>
 </body>
 
 </html>

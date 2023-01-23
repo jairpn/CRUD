@@ -119,7 +119,7 @@ if (!isset($_POST['nome'])) {
         </div> <!-- CONTAINER -->
 
     <?php
-    include_once 'script.php';
+    include_once './incview/script.php';
     include_once './incview/footer.php';
 } else {
     include_once "busca.php";

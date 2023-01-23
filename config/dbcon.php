@@ -5,8 +5,8 @@ error_reporting(E_ALL);
 
 $host = 'localhost';
 $user = 'root';
-$pass = 'root';
-$database = 'bdados';
+$pass = 'jair123';
+$database = 'contmerc';
 
 $con = mysqli_connect($host, $user, $pass, $database);
 

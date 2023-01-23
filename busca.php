@@ -7,12 +7,13 @@ include "./incview/head.php";
 ?>
 
 <body>
-
     <?php include './incview/headernavbar.php'; ?>
+    <?php if (!isset($_POST['nome'])) {
+        header('Location: index.php');
+    }
 
+    ?>
     <div class="container mt-4">
-
-
 
         <?php include('message.php'); ?>
 
@@ -41,6 +42,7 @@ include "./incview/head.php";
                             </thead>
                             <tbody>
                                 <?php
+
                                 $busca = "SELECT cp.idcompras, cp.nome, cp.valor_unitario, mc.nome_fantasia, cp.data_compra FROM compras cp, mercados mc WHERE cp.nome like '" . '%' . $_POST['nome'] . '%' . "' and id_mercado = idmercados ";
 
                                 $query = "$busca LIMIT $inicio, $total_reg"; // PAGINAÇÃO
@@ -110,8 +112,8 @@ include "./incview/head.php";
             </nav>
         </div>
 
-    </div> 
+    </div>
 
-    <?php include_once 'script.php'; ?>
+    <?php include_once './incview/script.php'; ?>
     <?php include './incview/footer.php'; ?>
     <br />
