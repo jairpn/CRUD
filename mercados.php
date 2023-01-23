@@ -24,7 +24,7 @@ $res = mysqli_query($con, $sql);
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Adicionar Mercado
+                        <h4>Adicionar Local
                             <a href="index.php" class="btn btn-danger float-end">VOLTAR</a>
                         </h4>
                     </div>
@@ -55,6 +55,3 @@ $res = mysqli_query($con, $sql);
     include './incview/script.php';
     include './incview/footer.php';
     ?>
-</body>
-
-</html>

@@ -7,6 +7,8 @@ if (!isset($_POST['nome'])) {
     include_once "./incview/paginacao.php";
     include "./incview/head.php";
 ?>
+
+
     <body>
 
         <?php include './incview/headernavbar.php'; ?>
@@ -24,7 +26,7 @@ if (!isset($_POST['nome'])) {
                             <!--    <h4>Detalhes do Produto -->
                             <a href="compras.php" class="btn btn-primary float">Adicionar Produto</a>
 
-                            <a href="mercados.php" class="btn btn-dark float-end">Adicionar Mercado</a>
+                            <a href="mercados.php" class="btn btn-dark float-end">Adicionar Mercado</a> 
                             <!--  </h4> -->
                         </div>
 
@@ -70,7 +72,7 @@ if (!isset($_POST['nome'])) {
 
                                                     <a href="vizualizar_compras.php?id=<?= $student['idcompras']; ?>" class="btn btn-primary btn-sm">Visualizar</a>
 
-                                                    <a href="editar_compras.php?id=<?= $student['idcompras']; ?>" class="btn btn-success btn-sm">Editar</a>
+                                                    <a href="editar_compras.php?id=<?= $student['idcompras']; ?>" class="btn btn-success btn-sm">Editar</a> 
 
                                                     <form action="code.php" method="POST" class="d-inline">
                                                         <button type="submit" name="delete_compras" value="<?= $student['idcompras']; ?>" class="btn btn-danger btn-sm">Deletar</button>
@@ -103,14 +105,14 @@ if (!isset($_POST['nome'])) {
             <div class="mx-auto" style="width: 200px;">
                 <nav aria-label="Navegação">
                     <ul class="pagination">
-                        <?php echo  "<li class='nav-item'><a class='btn-link-primary' href='?pagina=1'><<|</a></li>"; ?>
+                 <?php   echo  "<li class='nav-item'><a class='btn-link-primary' href='?pagina=1'><< | </a></li>"; ?>
                         <?php if ($pc > 1) {
-                            echo   "<li class='nav-item'><a class='btn-link-primary' href='?pagina=$anterior'> Anterior |</a></li>";
+                            echo   "<li class='nav-item'><a class='btn-link-primary' href='?pagina=$anterior'>Anterior |</a></li>";
                         }
                         if ($pc < $tp) {
                             echo   "<li class='nav-item'><a class='page-link-primary' href='?pagina=$proximo'>| Próximo</a></li>";
                         }
-                        echo  "<li class='nav-item'><a class='btn-link-primary' hint='Última Página' href='?pagina=$tp'>|>></a></li>";
+                          echo  "<li class='nav-item'><a class='btn-link-primary' hint='Última Página' href='?pagina=$tp'> | >></a></li>";                        
                         ?>
                     </ul>
                 </nav>
