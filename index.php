@@ -7,8 +7,6 @@ if (!isset($_POST['nome'])) {
     include_once "./incview/paginacao.php";
     include "./incview/head.php";
 ?>
-
-
     <body>
 
         <?php include './incview/headernavbar.php'; ?>
@@ -105,12 +103,14 @@ if (!isset($_POST['nome'])) {
             <div class="mx-auto" style="width: 200px;">
                 <nav aria-label="Navegação">
                     <ul class="pagination">
+                        <?php echo  "<li class='nav-item'><a class='btn-link-primary' href='?pagina=1'><<|</a></li>"; ?>
                         <?php if ($pc > 1) {
-                            echo   "<li class='page-item'><a class='page-link' href='?pagina=$anterior'>Anterior</a></li>";
+                            echo   "<li class='nav-item'><a class='btn-link-primary' href='?pagina=$anterior'> Anterior |</a></li>";
                         }
                         if ($pc < $tp) {
-                            echo   "<li class='page-item'><a class='page-link' href='?pagina=$proximo'>Próximo</a></li>";
+                            echo   "<li class='nav-item'><a class='page-link-primary' href='?pagina=$proximo'>| Próximo</a></li>";
                         }
+                        echo  "<li class='nav-item'><a class='btn-link-primary' hint='Última Página' href='?pagina=$tp'>|>></a></li>";
                         ?>
                     </ul>
                 </nav>
