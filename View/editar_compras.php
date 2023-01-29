@@ -1,14 +1,14 @@
 <?php
 session_start();
-require './config/dbcon.php';
+require '../config/dbcon.php';
 
-include_once "./incview/head.php";
+include_once "../View/head.php";
 
 ?>
 
 <body>
 
-    <?php include './incview/headernavbar.php'; ?>
+    <?php include '../View/headernavbar.php'; ?>
 
     <div class="container mt-5">
 
@@ -19,7 +19,7 @@ include_once "./incview/head.php";
                 <div class="card">
                     <div class="card-header">
                         <h4>Editar Produto
-                            <a href="index.php" class="btn btn-danger float-end">VOLTAR</a>
+                            <a href="../index.php" class="btn btn-danger float-end">VOLTAR</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -36,7 +36,7 @@ include_once "./incview/head.php";
                             if (mysqli_num_rows($query_run) > 0) {
                                 $student = mysqli_fetch_array($query_run);
                         ?>
-                        <form action="code.php" method="POST">
+                        <form action="../Model/code.php" method="POST">
                             <input type="hidden" name="student_id" value="<?= $student['idcompras']; ?>">
 
                             <div class="mb-3">
@@ -67,7 +67,7 @@ include_once "./incview/head.php";
         </div>
     </div>
 
-    <?php include_once './incview/script.php'; ?>
+    <?php include_once '../View/css/include/script.php'; ?>
 </body>
 
 </html>

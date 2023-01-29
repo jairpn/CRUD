@@ -1,6 +1,6 @@
 <?php
 session_start();
-require './config/dbcon.php';
+require '../config/dbcon.php';
 
 if (isset($_POST['delete_compras'])) {
     $student_id = mysqli_real_escape_string($con, $_POST['delete_compras']);
@@ -11,11 +11,11 @@ if (isset($_POST['delete_compras'])) {
 
     if ($query_run) {
         $_SESSION['message'] = "Produto excluido com sucesso";
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit(0);
     } else {
         $_SESSION['message'] = "Não foi possível excluir o produto";
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit(0);
     } 
 }
@@ -35,11 +35,11 @@ if (isset($_POST['editar_compras'])) {
 
     if ($query_run) {
         $_SESSION['message'] = "Produto atualizado com sucesso";
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit(0);
     } else {
         $_SESSION['message'] = "Produto não atualizado";
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit(0);
     }
 }
@@ -57,11 +57,11 @@ if (isset($_POST['salvar_produto'])) {
     $query_run = mysqli_query($con, $query);
     if ($query_run) {
         $_SESSION['message'] = "Produto cadastrado com sucesso!";
-        header("Location: compras.php");
+        header("Location: ../View/compras.php");
         exit(0);
     } else {
         $_SESSION['message'] = "Produto não cadastrado";
-        header("Location: compras.php");
+        header("Location: ../View/compras.php");
         exit(0);
     }
 }
@@ -82,11 +82,11 @@ if (isset($_POST['salvar_mercado'])) {
  
     if ($query_run) {
         $_SESSION['message'] = "Mercado cadastrado com sucesso!";
-        header("Location: mercados.php");
+        header("Location: ../View/mercados.php");
         exit(0);
     } else {
         $_SESSION['message'] = "Mercado não cadastrado";
-        header("Location: mercados.php");
+        header("Location: ../View/mercados.php");
         exit(0);
     }
     

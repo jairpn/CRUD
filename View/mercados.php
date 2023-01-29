@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-include_once "./config/dbcon.php";
+include_once "../config/dbcon.php";
 
-include_once "./incview/head.php";
+include_once "../View/head.php";
 
 $sql = 'select * from mercados'; // Precisa para trazer o nome dos mercados
 
@@ -14,7 +14,7 @@ $res = mysqli_query($con, $sql);
 
 <body>
 
-    <?php include './incview/headernavbar.php'; ?>
+    <?php include '../View/headernavbar.php'; ?>
 
     <div class="container mt-5">
 
@@ -25,11 +25,11 @@ $res = mysqli_query($con, $sql);
                 <div class="card">
                     <div class="card-header">
                         <h4>Adicionar Local
-                            <a href="index.php" class="btn btn-danger float-end">VOLTAR</a>
+                            <a href="../index.php" class="btn btn-danger float-end">VOLTAR</a>
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="code.php" method="POST">
+                        <form action="../Model/code.php" method="POST">
 
                             <div class="mb-3">
                                 <label>Nome</label>
@@ -52,6 +52,6 @@ $res = mysqli_query($con, $sql);
         </div>
     </div>
     <?php
-    include './incview/script.php';
-    include './incview/footer.php';
+    include_once 'css/include/script.php';
+    include '../View/footer.php';
     ?>

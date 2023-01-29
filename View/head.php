@@ -16,5 +16,3 @@
 
     <title>Japasoft Softwares</title>
 </head>
-
-

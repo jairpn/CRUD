@@ -1,14 +1,14 @@
 <?php
-require './config/dbcon.php';
+require '../config/dbcon.php';
 
-include_once "./incview/paginacao.php";
-include "./incview/head.php"
+include_once "paginacao.php";
+include "head.php"
 
 ?>
 
 
 <body>
-    <?php include './incview/headernavbar.php'; ?>
+    <?php include 'headernavbar.php'; ?>
 
     <div class="container mt-5">
 
@@ -17,7 +17,7 @@ include "./incview/head.php"
                 <div class="card">
                     <div class="card-header">
                         <h4>Dados do Produto
-                            <a href="index.php" class="btn btn-danger float-end">VOLTAR</a>
+                            <a href="../index.php" class="btn btn-danger float-end">VOLTAR</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -27,7 +27,7 @@ include "./incview/head.php"
 
                         if (isset($_GET['id'])) {
                             $student_id = mysqli_real_escape_string($con, $_GET['id']);
-                            $query = "SELECT * FROM compras WHERE idcompras='$student_id' ";
+                            $query = "SELECT cp.nome, cp.valor_unitario, mc.nome_fantasia FROM compras cp, mercados mc WHERE idcompras='$student_id' and id_mercado = idmercados";
                             $query_run = mysqli_query($con, $query);
 
                             if (mysqli_num_rows($query_run) > 0) {
@@ -36,7 +36,7 @@ include "./incview/head.php"
 
                                 <div class="mb-3">
                                     <label>Nome</label>
-                                    <p class="form-control">
+                                    <p class="p-2 mb-3 bg-primary bg-gradient text-white">
                                         <?= $student['nome']; ?>
                                     </p>
                                 </div>
@@ -44,8 +44,15 @@ include "./incview/head.php"
 
                                 <div class="mb-3">
                                     <label>Valor Unitário</label>
-                                    <p class="form-control">
+                                    <p class="p-2 mb-3 bg-primary bg-gradient text-white">
                                         <?= $student['valor_unitario']; ?>
+                                    </p>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label>Local</label>
+                                    <p class="p-2 mb-3 bg-primary bg-success text-white">
+                                        <?= $student['nome_fantasia']; ?>
                                     </p>
                                 </div>
 
@@ -61,7 +68,7 @@ include "./incview/head.php"
         </div>
     </div>
 
-    <?php include_once './incview/script.php'; ?>
+    <?php include_once 'css/include/script.php'; ?>
 </body>
 
 </html>

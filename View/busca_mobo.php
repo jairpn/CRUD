@@ -1,43 +1,33 @@
 <?php
 //session_start();
 require './config/dbcon.php';
-include_once "./incview/paginacao.php";
-include "./incview/head.php";
+include_once "./View/paginacao.php";
+include "./View/head.php";
 
 ?>
 
 <body>
-    <?php include './incview/headernavbar.php'; ?>
+    <?php include './View/headernavbar.php'; ?>
     <?php if (!isset($_POST['nome'])) {
         header('Location: index.php');
     }
 
     ?>
-    <div class="container mt-4">
+    <div class="container">
 
         <?php include('message.php'); ?>
 
         <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <!--  <h4>Detalhes do Produto -->
-                        <a href="compras.php" class="btn btn-primary float">Adicionar Produto</a>
-
-                        <a href="compras.php" class="btn btn-primary float-end">Adicionar Mercado</a>
-                        <!--     </h4> -->
-                    </div>
+            <div class="col-md-4">
+                
                     <div class="card-body">
 
-                        <table class="table table-bordered table-striped">
-                            <thead>
+                        <table class="table table-bordered">
+                            <thead class="table-primary">
                                 <tr>
-                                    <th>#</th>
                                     <th>Nome</th>
-                                    <th>Local</th>
                                     <th>Valor Unitário</th>
-                                    <th>Data Compra</th>
-                                    <th>Ação</th>
+                                    <th>Local</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,23 +47,11 @@ include "./incview/head.php";
 
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $student) {
-                                        $date = new DateTime($student['data_compra']);
                                 ?>
                                         <tr>
-                                            <td><?= $student['idcompras']; ?></td>
                                             <td><?= $student['nome']; ?></td>
-                                            <td><?= $student['nome_fantasia']; ?></td>
                                             <td><?= 'R$ ' . $student['valor_unitario']; ?></td>
-                                            <td><?= $date->format('d/m/Y'); ?></td>
-                                            <td>
-                                                <a href="vizualizar_compras.php?id=<?= $student['idcompras']; ?>" class="btn btn-primary btn-sm">Visualizar</a>
-
-                                                <a href="editar_compras.php?id=<?= $student['idcompras']; ?>" class="btn btn-success btn-sm">Editar</a>
-
-                                                <form action="code.php" method="POST" class="d-inline">
-                                                    <button type="submit" name="delete_compras" value="<?= $student['idcompras']; ?>" class="btn btn-danger btn-sm">Deletar</button>
-                                                </form>
-                                            </td>
+                                            <td><?= $student['nome_fantasia']; ?></td>
                                         </tr>
                                 <?php
                                     }
@@ -86,7 +64,7 @@ include "./incview/head.php";
                         </table>
 
                     </div>
-                </div>
+               
             </div>
         </div>
 
@@ -114,6 +92,6 @@ include "./incview/head.php";
 
     </div>
 
-    <?php include_once './incview/script.php'; ?>
-    <?php include './incview/footer.php'; ?>
+    <?php include_once './View/include/script.php'; ?>
+    <?php include './View/footer.php'; ?>
     <br />
