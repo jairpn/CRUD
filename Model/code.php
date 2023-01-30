@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 require '../config/dbcon.php';
 
 if (isset($_POST['delete_compras'])) {
@@ -75,18 +75,16 @@ if (isset($_POST['salvar_mercado'])) {
 
     $query = "INSERT INTO mercados (nome,  nome_fantasia) VALUES ('$nome','$nomefantasia')";
 
-    echo $query;
-
-    $query_run = mysqli_query($con, $query);
+      $query_run = mysqli_query($con, $query);
  
  
     if ($query_run) {
         $_SESSION['message'] = "Mercado cadastrado com sucesso!";
-        header("Location: ../View/mercados.php");
+       header("Location: ../View/mercados.php");
         exit(0);
     } else {
         $_SESSION['message'] = "Mercado não cadastrado";
-        header("Location: ../View/mercados.php");
+       header("Location: ../View/mercados.php");
         exit(0);
     }
     

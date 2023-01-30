@@ -31,9 +31,9 @@ if (!isset($_POST['nome'])) {
                     <div class="card">
                         <div class="card-header">
 
-                                       <a href="View/compras.php" class="btn btn-primary float">Adicionar Produto</a>
+                            <a href="View/compras.php" class="btn btn-primary float">Adicionar Produto</a>
 
-                            <a href="View/mercados.php" class="btn btn-dark float-end">Adicionar Local</a>  
+                            <a href="View/mercados.php" class="btn btn-dark float-end">Adicionar Local</a>
 
                         </div>
 
@@ -48,7 +48,7 @@ if (!isset($_POST['nome'])) {
                                         <th>Local</th>
                                         <th>Valor Unitário</th>
                                         <th>Data Compra</th>
-                                        <!--  <th>Ação</th> -->
+                                        <th>Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -75,16 +75,16 @@ if (!isset($_POST['nome'])) {
                                                 <td><?= $student['nome_fantasia']; ?></td>
                                                 <td><?= 'R$ ' . $student['valor_unitario']; ?></td>
                                                 <td><?= $date->format('d/m/Y'); ?></td>
-                                                      <td>
+                                                <td>
 
-                                                  <a href="View/vizualizar_compras.php?id=<?= $student['idcompras']; ?>" class="btn btn-primary btn-sm">Visualizar</a>
+                                                    <a href="View/vizualizar_compras.php?id=<?= $student['idcompras']; ?>" class="btn btn-primary btn-sm">Visualizar</a>
 
                                                     <a href="View/editar_compras.php?id=<?= $student['idcompras']; ?>" class="btn btn-success btn-sm">Editar</a>
 
                                                     <form action="Model/code.php" method="POST" class="d-inline">
                                                         <button type="submit" name="delete_compras" value="<?= $student['idcompras']; ?>" class="btn btn-danger btn-sm">Deletar</button>
-                                                    </form> 
-                                                </td> 
+                                                    </form>
+                                                </td>
                                             </tr>
                                     <?php
                                         }
