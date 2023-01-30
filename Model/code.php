@@ -2,6 +2,11 @@
 //session_start();
 require '../config/dbcon.php';
 
+
+
+
+
+
 if (isset($_POST['delete_compras'])) {
     $student_id = mysqli_real_escape_string($con, $_POST['delete_compras']);
 
@@ -19,6 +24,8 @@ if (isset($_POST['delete_compras'])) {
         exit(0);
     } 
 }
+
+////////////////////////////////////////////////////////
 
 if (isset($_POST['editar_compras'])) {
     $student_id = mysqli_real_escape_string($con, $_POST['student_id']);
@@ -43,6 +50,8 @@ if (isset($_POST['editar_compras'])) {
         exit(0);
     }
 }
+
+////////////////////////////////////////////////////////
 
 
 if (isset($_POST['salvar_produto'])) {
@@ -88,4 +97,6 @@ if (isset($_POST['salvar_mercado'])) {
         exit(0);
     }
     
+////////////////////////////////////////////////////////
+
 }

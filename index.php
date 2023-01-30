@@ -111,7 +111,7 @@ if (!isset($_POST['nome'])) {
             <div class="mx-auto" style="width: 200px;">
                 <nav aria-label="Navegação">
                     <ul class="pagination">
-                        <?php echo  "<li class='nav-item'><a class='btn-link-primary' href='?pagina=1'><< | </a></li>"; ?>
+                        <?php echo  "<li class='nav-item'><a class='btn-link-primary' href='?pagina=1'><< | </a></li>"; ?>                       
                         <?php if ($pc > 1) {
                             echo   "<li class='nav-item'><a class='btn-link-primary' href='?pagina=$anterior'>Anterior |</a></li>";
                         }

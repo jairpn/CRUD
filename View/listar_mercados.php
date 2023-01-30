@@ -56,7 +56,6 @@ if (!isset($_POST['nome'])) {
                                     $tr = mysqli_num_rows($todos); // verifica o número total de registros  PAGINAÇÃO
                                     $tp = $tr / $total_reg; // verifica o número total de páginas  PAGINAÇÃO
 
-
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $student) {
 
@@ -92,7 +91,6 @@ if (!isset($_POST['nome'])) {
 
             <?php
 
-
             $anterior = $pc - 1;
             $proximo = $pc + 1;
 
@@ -102,7 +100,6 @@ if (!isset($_POST['nome'])) {
             <?php
             
             if(($proximo == '') || ($anterior == '')){
-
 
             }
 

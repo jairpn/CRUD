@@ -22,9 +22,9 @@ include "./View/head.php";
                 <div class="card">
                     <div class="card-header">
                         <!--  <h4>Detalhes do Produto -->
-                        <a href="compras.php" class="btn btn-primary float">Adicionar Produto</a>
+                        <a href="../View/compras.php" class="btn btn-primary float">Adicionar Produto</a>
 
-                        <a href="compras.php" class="btn btn-dark float-end">Adicionar Local</a>
+                        <a href="../View/compras.php" class="btn btn-dark float-end">Adicionar Local</a>
                         <!--     </h4> -->
                     </div>
                     <div class="card-body">
@@ -43,7 +43,8 @@ include "./View/head.php";
                             <tbody>
                                 <?php
 
-                                $busca = "SELECT cp.idcompras, cp.nome, cp.valor_unitario, mc.nome_fantasia, cp.data_compra FROM compras cp, mercados mc WHERE cp.nome like '" . '%' . $_POST['nome'] . '%' . "' and id_mercado = idmercados ";
+                                $busca = "SELECT cp.idcompras, cp.nome, cp.valor_unitario, mc.nome_fantasia, 
+                                cp.data_compra FROM compras cp, mercados mc WHERE cp.nome like '" . '%' . $_POST['nome'] . '%' . "' and id_mercado = idmercados order by cp.valor_unitario asc";
 
                                 $query = "$busca LIMIT $inicio, $total_reg"; // PAGINAÇÃO
 
