@@ -10,41 +10,41 @@ if (!isset($_POST['nome'])) {
 ?>
 
 
-    <body>
+<body>
 
-        <?php include 'headernavbar.php'; ?>
+    <?php include 'headernavbar.php'; ?>
 
-        <div class="container mt-4">
-
-
-
-            <?php include('message.php'); ?>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <!--    <h4>Detalhes do Produto -->
-                            <a href="compras.php" class="btn btn-primary float">Adicionar Produto</a>
-
-                            <a href="mercados.php" class="btn btn-dark float-end">Adicionar Local</a>
-                            <!--  </h4> -->
-                        </div>
-
-                        <div class="card-body">
+    <div class="container mt-4">
 
 
-                            <table class="table table-bordered">
-                                <thead class="table-primary">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Local</th>
-                                        <th>Nome de fantasia</th>
-                                        <th>Ação</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
+
+        <?php include('message.php'); ?>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <!--    <h4>Detalhes do Produto -->
+                        <a href="compras.php" class="btn btn-primary float">Adicionar Produto</a>
+
+                        <a href="mercados.php" class="btn btn-dark float-end">Adicionar Local</a>
+                        <!--  </h4> -->
+                    </div>
+
+                    <div class="card-body">
+
+
+                        <table class="table table-bordered">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Local</th>
+                                    <th>Nome de fantasia</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
                                     $busca = "SELECT idmercados, nome,  nome_fantasia FROM mercados";
 
                                     $query = "$busca LIMIT $inicio, $total_reg"; // PAGINAÇÃO
@@ -60,56 +60,59 @@ if (!isset($_POST['nome'])) {
                                         foreach ($query_run as $student) {
 
                                     ?>
-                                            <tr>
-                                                <td><?= $student['idmercados']; ?></td>
-                                                <td><?= $student['nome']; ?></td>
-                                                <td><?= $student['nome_fantasia']; ?></td>
+                                <tr>
+                                    <td><?= $student['idmercados']; ?></td>
+                                    <td><?= $student['nome']; ?></td>
+                                    <td><?= $student['nome_fantasia']; ?></td>
 
-                                                <td>
-                                                    <a href="vizualizar_mercados.php?id=<?= $student['idmercados']; ?>" class="btn btn-primary btn-sm">Visualizar</a>
+                                    <td>
+                                        <a href="vizualizar_mercados.php?id=<?= $student['idmercados']; ?>"
+                                            class="btn btn-primary btn-sm">Visualizar</a>
 
-                                                    <a href="editar_compras.php?id=<?= $student['idmercados']; ?>" class="btn btn-success btn-sm">Editar</a>
+                                        <a href="editar_compras.php?id=<?= $student['idmercados']; ?>"
+                                            class="btn btn-success btn-sm">Editar</a>
 
-                                                    <form action="../Model/code.php" method="POST" class="d-inline">
-                                                        <button type="submit" name="delete_compras" value="<?=$student['idmercados'];?>" class="btn btn-danger btn-sm">Deletar</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                    <?php
+                                        <form action="../Model/code.php" method="POST" class="d-inline">
+                                            <button type="submit" name="delete_compras"
+                                                value="<?= $student['idmercados']; ?>"
+                                                class="btn btn-danger btn-sm">Deletar</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <?php
                                         }
                                     } else {
                                         echo "<h5> Nenhum Produto cadastrado </h5>";
                                     }
                                     ?>
-                                </tbody>
-                            </table>
+                            </tbody>
+                        </table>
 
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <?php
+        <?php
 
             $anterior = $pc - 1;
             $proximo = $pc + 1;
 
             ?>
-            <br />
+        <br />
 
-            <?php
-            
-            if(($proximo == '') || ($anterior == '')){
+        <?php
 
+            if (($proximo == '') || ($anterior == '')) {
             }
 
-            
+
             ?>
-            <div class="mx-auto" style="width: 200px;">
-                <nav aria-label="Navegação">
-                    <ul class="pagination">
-                        <?php echo  "<li class='nav-item'><a class='btn-link-primary' href='?pagina=1'><< | </a></li>"; ?>
-                        <?php if ($pc > 1) {
+        <div class="mx-auto" style="width: 200px;">
+            <nav aria-label="Navegação">
+                <ul class="pagination">
+                    <?php echo  "<li class='nav-item'><a class='btn-link-primary' href='?pagina=1'><< | </a></li>"; ?>
+                    <?php if ($pc > 1) {
                             echo   "<li class='nav-item'><a class='btn-link-primary' href='?pagina=$anterior'>Anterior |</a></li>";
                         }
                         if ($pc < $tp) {
@@ -117,11 +120,11 @@ if (!isset($_POST['nome'])) {
                         }
                         echo  "<li class='nav-item'><a class='btn-link-primary' hint='Última Página' href='?pagina=$tp'> | >></a></li>";
                         ?>
-                    </ul>
-                </nav>
-            </div>
+                </ul>
+            </nav>
+        </div>
 
-        </div> <!-- CONTAINER -->
+    </div> <!-- CONTAINER -->
 
     <?php
     include_once 'css/include/script.php';
