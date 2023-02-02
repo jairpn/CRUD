@@ -38,7 +38,7 @@ if (!isset($_POST['nome'])) {
                                 <thead class="table-primary">
                                     <tr>
                                         <th>#</th>
-                                        <th>Nome</th>
+                                        <th>Local</th>
                                         <th>Nome de fantasia</th>
                                         <th>Ação</th>
                                     </tr>
